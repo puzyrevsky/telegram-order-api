@@ -1,0 +1,12 @@
+name: Ping CSB Server
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'   # каждое воскресенье в полночь UTC (раз в неделю)
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl CSB
+        run: curl -fsS https://4258ky-3000.csb.app/ || exit 0
